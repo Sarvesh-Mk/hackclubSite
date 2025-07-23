@@ -13,129 +13,23 @@ import {
   Link as UILink,
   Text
 } from 'theme-ui'
-import ForceTheme from '../../components/force-theme'
-import Nav from '../../components/nav'
-import Footer from '../../components/footer'
-import Photo from '../../components/photo'
-import Stat from '../../components/stat'
-import ContactBanner from '../../components/fiscal-sponsorship/contact'
-import Features from '../../components/fiscal-sponsorship/features'
-import OuternetImgFile from '../../public/home/outernet-110.jpg'
-import SignIn from '../../components/fiscal-sponsorship/sign-in'
-import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
+import ForceTheme from '../../../components/force-theme'
+import Footer from '../../../components/footer'
+import Photo from '../../../components/photo'
+import Stat from '../../../components/stat'
+import OuternetImgFile from '../../../public/home/outernet-110.jpg'
+import SignIn from '../../../components/fiscal-sponsorship/sign-in'
+import OrganizationSpotlight from '../../../components/fiscal-sponsorship/organization-spotlight'
 import { setCookie, getCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
-import { unfold } from '../../components/announcement'
+import { unfold } from '../../../components/announcement'
 import Icon from '@hackclub/icons'
 
 const organizations = [
-  {
-    id: 'org_MpJurQ',
-    name: 'Reboot',
-    description:
-      'Publishing techno-optimism, through newsletters, magazines, and events.',
-    slug: 'reboot',
-    location: { readable: 'Bay Area, CA, USA' },
-    logo: '/fiscal-sponsorship/reboot.png',
-    background_image: '/fiscal-sponsorship/reboot-bg.jpg'
-  },
-  {
-    id: 'org_AluOql',
-    name: 'Apocalypse',
-    description: "Canada's largest in-person high school hackathon.",
-    slug: 'apocalypse',
-    location: { readable: 'Toronto, Canada' },
-    logo: '/fiscal-sponsorship/apocalypse.png',
-    background_image: '/fiscal-sponsorship/apocalypse-bg.png'
-  },
-  {
-    id: 'org_BbVuWN',
-    name: 'Green Mountain Robotics',
-    description: 'Spreading STEM interest, one robot at a time.',
-    slug: 'green-mountain-robotics',
-    location: { readable: 'Chittenden County, VT, USA' },
-    logo: '/fiscal-sponsorship/green-mountain-robotics.png',
-    background_image: 'green-mountain-robotics-bg.png'
-  },
-  {
-    id: 'org_a29uVj',
-    name: 'Hack Club HQ',
-    description: 'This is us! We run our operations on HCB.',
-    slug: 'hq',
-    location: { readable: 'Vermont, USA' },
-    logo: 'https://cloud-91boqw8z9-hack-club-bot.vercel.app/0icon-rounded.png',
-    background_image: '/fiscal-sponsorship/hq-bg.jpg'
-  }
 ]
 
 function OpenSourceAlert() {
-  return (
-    <Container sx={{ position: 'relative' }}>
-      <Box
-        sx={{
-          py: ['25px', 3],
-          px: 4,
-          background: [
-            'rgba(200, 200, 200, 0.3)',
-            'linear-gradient(rgba(255,255,255,0.4), rgba(200,200,200,.3))'
-          ],
-          backdropFilter: 'blur(20px)',
-          borderRadius: 20,
-          boxShadow:
-            '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 10,
-          mt: [20, -50],
-          transform: 'scaleY(0)',
-          '@media (prefers-reduced-motion: no-preference)': {
-            animation: `${unfold} 0.5s ease-out forwards`,
-            animationDelay: '0.5s'
-          },
-          flexDirection: ['column', 'row']
-        }}
-      >
-        <span style={{ fontSize: 20 }}>
-          <strong style={{ fontSize: 23 }}>HCB is now open source! </strong>
-          <br />
-          Join us in building the infrastructure powering student-led
-          organizations
-        </span>
-
-        <Box
-          sx={{
-            gap: 2,
-            display: 'flex',
-            width: ['100%', 'auto'],
-            alignItems: ['stretch', 'center'],
-            flexShrink: 0,
-            ml: [undefined, 'auto'],
-            flexDirection: ['column-reverse', 'row']
-          }}
-        >
-          <Button
-            as="a"
-            sx={{ flexShrink: 0, gap: 14, paddingLeft: 25 }}
-            variant="outline"
-            target="_blank"
-            href="https://github.com/hackclub/hcb"
-          >
-            Star on GitHub
-            <Icon glyph="github" />
-          </Button>
-          <Button
-            as="a"
-            sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px' }}
-            href="https://hackclub.com/hcb/open-source"
-            target="_blank"
-          >
-            Read our blog post
-            <Icon glyph="view-forward" />
-          </Button>
-        </Box>
-      </Box>
-    </Container>
-  )
+  return null
 }
 
 export default function Page() {
@@ -168,7 +62,6 @@ export default function Page() {
         image="/fiscal-sponsorship/og-image.png"
       />
       <ForceTheme theme="light" />
-      <Nav />
       <Box
         as="header"
         sx={{
@@ -210,30 +103,6 @@ export default function Page() {
             }
           }}
         >
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M16 31C28 31 31 28 31 16C31 4 28 1 16 1C4 1 1 4 1 16C1 28 4 31 16 31Z"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeDasharray="6 4"
-            />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M16.0003 8.018C15.9593 8.032 15.8963 8.056 15.8063 8.096C15.5673 8.199 15.2832 8.347 14.9183 8.556C14.1762 8.98 13.2473 9.579 12.2023 10.317C10.9954 11.1683 10.4485 11.5969 9.76695 12.1311L9.76693 12.1311L9.76692 12.1311C9.26201 12.5269 8.68316 12.9806 7.70725 13.707C7.31725 14.098 6.68325 14.098 6.29325 13.707C5.90225 13.317 5.90225 12.683 6.29325 12.293C8.5005 10.5 8.89925 10.201 11.0483 8.683C12.1283 7.921 13.1373 7.27 13.9263 6.819C14.3273 6.59 14.7063 6.394 15.0033 6.264C15.2653 6.149 15.6423 6 16.0003 6C16.3583 6 16.7353 6.149 16.9973 6.264C17.2943 6.394 17.6733 6.59 18.0743 6.819C18.8632 7.27 19.8723 7.921 20.9523 8.683C23.1012 10.201 23.5 10.5 25.7073 12.293C26.0983 12.683 26.0983 13.317 25.7073 13.707C25.3173 14.098 24.6833 14.098 24.2932 13.707C23.3173 12.9806 22.7385 12.5269 22.2336 12.1311C21.552 11.5969 21.0051 11.1683 19.7983 10.317C18.7533 9.579 17.8243 8.98 17.0823 8.556C16.7173 8.347 16.4333 8.199 16.1943 8.096C16.1043 8.056 16.0413 8.032 16.0003 8.018ZM7 24C7 23.448 7.448 23 8 23H24C24.552 23 25 23.448 25 24C25 24.552 24.552 25 24 25H8C7.448 25 7 24.552 7 24ZM15 21C15 21.552 15.448 22 16 22C16.552 22 17 21.552 17 21V14C17 13.448 16.552 13 16 13C15.448 13 15 13.448 15 14V21ZM21 22C20.448 22 20 21.552 20 21V14C20 13.448 20.448 13 21 13C21.552 13 22 13.448 22 14V21C22 21.552 21.552 22 21 22ZM10 21C10 21.552 10.448 22 11 22C11.552 22 12 21.552 12 21V14C12 13.448 11.552 13 11 13C10.448 13 10 13.448 10 14V21Z"
-              fill="currentColor"
-            />
-          </svg>
           <Heading
             as="h1"
             variant="title"
@@ -250,14 +119,14 @@ export default function Page() {
               }
             }}
           >
-            <span>The foundation</span> of your nonprofit.
+            <span>Shark Bank!</span> recieve up to $1000 in funding.
           </Heading>
           <Text as="p" variant="lead" sx={{ my: [3, 4] }}>
             <Balancer>
-              Start your nonprofit with{' '}
-              <strong>our fiscal sponsorship program, HCB</strong>: a 501(c)(3)
-              legal entity, bank account, automatic taxes & accounting, and
-              best-in-class software.
+              <strong>Are you a teenager running an organization on HCB? <br/>
+              Found yourself in a financial dry spot? <br/> </strong>
+              Pitch your organization to our panel of sharks and receive up to 
+              $1000 in funding to help you get back on your feet. 
             </Balancer>
           </Text>
 
@@ -311,20 +180,6 @@ export default function Page() {
                 Apply now
               </Button>
             </Link>
-            <SignIn />
-            <Link href="/fiscal-sponsorship/sharkbank" passHref legacyBehavior>
-              <Button
-                as="a"
-                variant="lg"
-                sx={{
-                  bg: 'gold',
-                  backgroundImage: theme => theme.util.gx('orange', 'red'),
-                  lineHeight: 0.9
-                }}
-              >
-                Sign up for Shark Bank!
-              </Button>
-            </Link>
           </Flex>
         </Container>
       </Box>
@@ -373,7 +228,6 @@ export default function Page() {
           </Box>
         </Container>
       </Box>
-      <Features />
 
       <Box id="fees" as="section" sx={{ position: 'relative', py: 5 }}>
         <Container>
@@ -438,75 +292,6 @@ export default function Page() {
           </Grid>
         </Container>
       </Box>
-      {/** removed for now
-      <Box as="section" bg="snow" sx={{ py: 5 }}>
-        <Container>
-          <Grid columns={[null, null, 2]} gap={[4, 5]}>
-            <div>
-              <Heading
-                variant="headline"
-                as="h2"
-                sx={{ marginBlockStart: [null, 4] }}
-              >
-                <Balancer>
-                  The fiscal sponsor of&nbsp;choice for the best funders.
-                </Balancer>
-              </Heading>
-              <Flex
-                sx={{
-                  alignItems: 'center',
-                  gap: [3, 4],
-                  mt: 4,
-                  img: {
-                    width: [72, 128],
-                    height: [72, 128],
-                    objectFit: 'contain'
-                  }
-                }}
-              >
-                {['ycjf.png', 'first.png'].map(file => (
-                  <img
-                    key={file}
-                    src={`/fiscal-sponsorship/${file}`}
-                    width={128}
-                    height={128}
-                    loading="lazy"
-                    alt={file.split('.')[0].toUpperCase()}
-                  />
-                ))}
-              </Flex>
-            </div>
-            <Card sx={{ maxWidth: 'copy', ml: [null, -4], textAlign: 'left' }}>
-              <Text
-                as="blockquote"
-                variant="lead"
-                sx={{
-                  mt: '0 !important',
-                  color: 'slate',
-                  textIndent: '-0.33em'
-                }}
-              >
-                “Quote goes here”
-              </Text>
-              <Text
-                as="p"
-                variant="caption"
-                sx={{ color: 'muted', mt: 3, textIndent: '-1.5ch' }}
-              >
-                —
-                <Text as="strong" color="slate">
-                  FirstName LastName
-                </Text>
-                , Title,{' '}
-                <UILink href="https://example.com">
-                  Organization
-                </UILink>
-              </Text>
-            </Card>
-          </Grid>
-        </Container>
-      </Box>
-      */}
       <Container>
         <Grid
           columns={[null, null, 2]}
@@ -635,7 +420,6 @@ export default function Page() {
           </Text>
         </Flex>
       </Box>
-      <ContactBanner sx={{ justifyContent: 'center' }} />
       <Footer />
     </>
   )
