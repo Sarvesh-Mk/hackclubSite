@@ -14,12 +14,10 @@ import {
   Text
 } from 'theme-ui'
 import ForceTheme from '../../../components/force-theme'
+import Nav from '../../../components/nav'
 import Footer from '../../../components/footer'
 import Photo from '../../../components/photo'
-import Stat from '../../../components/stat'
 import OuternetImgFile from '../../../public/home/outernet-110.jpg'
-import SignIn from '../../../components/fiscal-sponsorship/sign-in'
-import OrganizationSpotlight from '../../../components/fiscal-sponsorship/organization-spotlight'
 import { setCookie, getCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
 import { unfold } from '../../../components/announcement'
@@ -57,11 +55,12 @@ export default function Page() {
     <>
       <Meta
         as={Head}
-        title="Fiscal Sponsorship"
-        description="Start your nonprofit with our fiscal sponsorship program, HCB: a 501(c)(3) legal entity, bank account, automatic taxes & accounting, and best-in-class app."
+        title="Sharkbank!"
+        description="Receive up to $1000 in funding for your HCB organization."
         image="/fiscal-sponsorship/og-image.png"
       />
       <ForceTheme theme="light" />
+      <Nav />
       <Box
         as="header"
         sx={{
@@ -79,13 +78,10 @@ export default function Page() {
             inset: 0,
             height: '100%',
             zIndex: 0,
-            backgroundSize: '48px 48px',
-            backgroundImage: `linear-gradient(to right,  #fcc8bf 1px, transparent 1px),
-                              linear-gradient(to bottom, #fcc8bf 1px, transparent 1px)`,
-            backgroundPosition: 'top center',
-            maskImage:
-              'linear-gradient(to bottom, transparent 0%, hsl(0deg 0% 100% / 50%) 10%, white 100%)',
-            opacity: 0.18
+            backgroundImage:
+              "url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/7c8802fb7ba2076d8872eef60205c0d13354ed8f_image.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
         />
         <Container
@@ -119,7 +115,7 @@ export default function Page() {
               }
             }}
           >
-            <span>Shark Bank!</span> recieve up to $1000 in funding.
+            <span>Shark Bank!</span> Recieve up to $1000 in funding.
           </Heading>
           <Text as="p" variant="lead" sx={{ my: [3, 4] }}>
             <Balancer>
@@ -167,7 +163,7 @@ export default function Page() {
               alignItems: ['start', 'center']
             }}
           >
-            <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
+            <Link href="https://www.fillout.com/" passHref legacyBehavior>
               <Button
                 as="a"
                 variant="lg"
@@ -189,16 +185,6 @@ export default function Page() {
           {/* <Text as="p" variant="headline" sx={{ mt: 0 }}>
             Powering nonprofits at every scale
           </Text> */}
-          <Flex sx={{ flexWrap: 'wrap', rowGap: 3, columnGap: [4, 5], mb: 4 }}>
-            <Stat value="$40M+" label="processed transactions" reversed />
-            <Stat value="6500+" label="projects" reversed />
-            <Stat value="2018" label="serving nonprofits since" reversed />
-          </Flex>
-          <Grid columns={[1, 2]} gap={[3, 4]} sx={{ mt: 4 }}>
-            {organizations.map(org => (
-              <OrganizationSpotlight organization={org} key={org.id} />
-            ))}
-          </Grid>
           <Box
             sx={{
               mt: 4,
@@ -209,21 +195,6 @@ export default function Page() {
               alignItems: 'center'
             }}
           >
-            <Link href="/fiscal-sponsorship/directory" passHref legacyBehavior>
-              <Button
-                as="a"
-                variant="lg"
-                sx={{
-                  bg: 'blue',
-                  backgroundImage: theme => theme.util.gx('muted', 'slate'),
-                  lineHeight: 0.9,
-                  wordWrap: 'none'
-                }}
-              >
-                See more organizations →
-              </Button>
-            </Link>
-
             <Box sx={{ flexGrow: '1' }}></Box>
           </Box>
         </Container>
@@ -275,19 +246,19 @@ export default function Page() {
               }}
               style={{ margin: 0 }}
             >
-              No legal fees.
+              Run a teenage led organization?
               <br />
-              No startup fees.
+              ---
               <br />
-              No transaction fees.
+              ---
               <br />
-              No card issuing fees.
+              ---
               <br />
-              No subscription fees.
+              ---
               <br />
-              No check deposit fees.
+              ---
               <br />
-              No credit card processing fees.
+              ---
             </Text>
           </Grid>
         </Container>
@@ -325,39 +296,6 @@ export default function Page() {
               tapped into something much larger. Today, HCB removes financial
               and legal barriers for thousands doing good in their community.
             </p>
-            <Flex
-              as="footer"
-              sx={{
-                alignItems: 'center',
-                gap: 3,
-                color: 'slate',
-                borderRadius: 'default',
-                lineHeight: 'caption',
-                textWrap: 'balance',
-                svg: { flexShrink: 0, fill: 'blue' }
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={32}
-                height={32}
-                viewBox="0 0 16 16"
-                aria-hidden
-              >
-                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
-              </svg>
-              <span>
-                As part of our commitment to the environment, funding for HCB’s
-                operations&nbsp;and staff will never come from the{' '}
-                <UILink
-                  href="https://www.ffisolutions.com/the-carbon-underground-200-500/"
-                  color="blue"
-                >
-                  fossil fuel industry
-                </UILink>
-                .
-              </span>
-            </Flex>
           </div>
         </Grid>
       </Container>
@@ -369,7 +307,7 @@ export default function Page() {
           py: 6,
           px: 3,
           backgroundImage:
-            'radial-gradient(ellipse at 5% 5%, #e86494 0%, rgba(232,100,148,0) 75%),radial-gradient(ellipse at 95% 5%, #e86494 0%, rgba(232,100,148,0) 75%),radial-gradient(ellipse at 95% 95%, #baa8d3 0%, rgba(186,168,211,0) 75%),radial-gradient(ellipse at 5% 95%, #fa9f69 0%, rgba(250,159,105,0) 75%)',
+            'radial-gradient(ellipse at 5% 5%, #ff0000ff 0%, rgba(232,100,148,0) 75%),radial-gradient(ellipse at 95% 5%, #e86494 0%, rgba(232,100,148,0) 75%),radial-gradient(ellipse at 95% 95%, #baa8d3 0%, rgba(186,168,211,0) 75%),radial-gradient(ellipse at 5% 95%, #fa9f69 0%, rgba(250,159,105,0) 75%)',
           position: 'relative'
         }}
       >
@@ -396,7 +334,7 @@ export default function Page() {
             gap: 3
           }}
         >
-          <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
+          <Link href="https://www.fillout.com/" passHref legacyBehavior>
             <Button
               as="a"
               variant="lg"
